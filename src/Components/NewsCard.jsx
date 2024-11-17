@@ -36,7 +36,7 @@ const NewsCard = ({ news }) => {
 
             {/* Details */}
             <p className="text-sm text-gray-600 line-clamp-3">{news.details}</p>
-            <Link to='/' className="text-blue-500 cursor-pointer">Read More</Link>
+            <Link to={`/news/${news._id}`} className="text-blue-500 cursor-pointer">Read More</Link>
 
             {/* Footer (Rating and Views) */}
             <div className="flex items-center justify-between mt-4">
