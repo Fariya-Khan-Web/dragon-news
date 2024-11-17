@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillStar, AiOutlineEye } from 'react-icons/ai';
 import { CiBookmark } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
     return (
@@ -34,9 +35,8 @@ const NewsCard = ({ news }) => {
             />
 
             {/* Details */}
-            <p className="text-sm text-gray-600 line-clamp-3">
-                {news.details} <span className="text-blue-500 cursor-pointer">Read More</span>
-            </p>
+            <p className="text-sm text-gray-600 line-clamp-3">{news.details}</p>
+            <Link to='/' className="text-blue-500 cursor-pointer">Read More</Link>
 
             {/* Footer (Rating and Views) */}
             <div className="flex items-center justify-between mt-4">

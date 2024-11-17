@@ -12,12 +12,12 @@ const LeftNav = () => {
             console.log(data.data);
             setCategories(data.data.news_category)
         })
-        .catch(error => {console.log(error);})
+        .catch(error => {console.log(error);})  
     },[])
     console.log(categories);
     return (
         <div className='col-span-3'>
-            <h1 className='font-semibold'>All Categories</h1>
+            <h1 className='font-semibold'>All Categories({categories.length})</h1>
             <div>
                 {
                     categories.map((category) =>

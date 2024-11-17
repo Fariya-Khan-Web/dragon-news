@@ -11,35 +11,38 @@ import News from './Components/MainComponents/News';
 import Auth from './Layouts/Auth';
 import Login from './Components/Auth/Login';
 import Registrar from './Components/Auth/Registrar';
+import AuthProvider from './Components/provider/AuthProvider';
+import ErrorPage from './Components/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
-    children:[
+    element: <Home />,
+    errorElement:<ErrorPage/>,
+    children: [
       {
-        path:'',
+        path: '',
         element: <Navigate to={`/category/01`}></Navigate>
       },
       {
         path: "/category/:id",
-        loader:({params}) => fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`),
-        element: <News/>,
+        loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`),
+        element: <News />,
       },
     ]
   },
   {
     path: "/auth",
-    element: <Auth/>,
-    children:[
+    element: <Auth />,
+    children: [
       {
-        path:'/auth',
-        element: <Login/>
+        path: '/auth',
+        element: <Login />
       },
       {
-        path:'/auth/signin',
-        element: <Registrar/>
+        path: '/auth/signin',
+        element: <Registrar />
       }
     ]
   },
@@ -49,6 +52,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
