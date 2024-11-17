@@ -39,7 +39,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">{user?.email}</a>
+                    <a className="btn btn-ghost text-xl">{user?.displayName}</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -49,9 +49,17 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-4">
                         <div className="w-10 rounded-full">
-                            <img
+                            {
+                                user? 
+                                <img
+                                alt="Tailwind CSS Navbar component"
+                                src={user?.photoURL} />
+                                :
+                                <img
                                 alt="Tailwind CSS Navbar component"
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        
+                            }
                         </div>
                     </div>
                     <div>

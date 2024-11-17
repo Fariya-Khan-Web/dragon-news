@@ -6,7 +6,6 @@ const News = () => {
 
     const data = useLoaderData()
     const allNews = data.data
-    console.log(data.data);
 
     return (
         <div className='col-span-6'>
