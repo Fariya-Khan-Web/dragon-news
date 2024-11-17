@@ -1,10 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import NewsCard from '../NewsCard';
 
 const News = () => {
+
+    const data = useLoaderData()
+    const allNews = data.data
+    console.log(data.data);
+
     return (
         <div className='col-span-6'>
-            News
-            
+            <h2 className='font-semibold text-2xl'>Dragon News Home</h2>
+            {
+                allNews.map(news => <NewsCard news={news} key={news._id}></NewsCard>)
+            }
         </div>
     );
 };
